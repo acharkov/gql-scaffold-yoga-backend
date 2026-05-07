@@ -1,3 +1,7 @@
+# Default values are LOCAL DEV ONLY. Replace before any non-local deployment.
+# pgtyped.json also contains the local dev DB password — keep it out of remotes
+# or override via PGPASSWORD/PGHOST/PGUSER/PGDATABASE if you change creds.
+
 PORT=4000
 ROOT_URL=http://localhost:4000
 NODE_ENV=development

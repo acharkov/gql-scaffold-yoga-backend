@@ -21,9 +21,9 @@ services:
     container_name: {{PROJECT_NAME}}-postgres
     restart: unless-stopped
     environment:
-      POSTGRES_USER: root
-      POSTGRES_PASSWORD: root_pswd
-      POSTGRES_DB: postgres_db
+      POSTGRES_USER: ${POSTGRES_USER:-root}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-root_pswd}
+      POSTGRES_DB: ${POSTGRES_DB:-postgres_db}
     volumes:
       - pg-data:/var/lib/postgresql/data
     ports:
@@ -31,7 +31,7 @@ services:
     networks:
       - {{PROJECT_NAME}}-network
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U root -d postgres_db"]
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-root} -d ${POSTGRES_DB:-postgres_db}"]
       interval: 5s
       timeout: 5s
       retries: 5

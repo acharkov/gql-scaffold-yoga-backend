@@ -23,3 +23,6 @@ RUN --mount=type=cache,target=/root/.npm \
   npm ci --no-audit --omit=dev
 
 COPY --from=build_app /usr/src/app/.dist /app
+
+RUN chown -R node:node /app
+USER node

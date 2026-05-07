@@ -38,6 +38,12 @@ Never edit `*.queries.ts` or `generated-types/module-types.ts` — run `npm run 
 
 Register new modules in `src/modules/schema.ts`.
 
+## Security notes
+
+- `pgtyped.json` ships with **local-dev DB credentials** (`root` / `root_pswd`). It is committed to git by default — do not paste production credentials into it. For non-local environments, run pgtyped against a local replica or override the file in `.gitignore`.
+- `docker-compose.yml` reads `POSTGRES_USER`, `POSTGRES_PASSWORD`, `POSTGRES_DB`, and `REDIS_PASSWORD` from the environment with dev defaults. Set these in `.env.prod` (gitignored) for any non-local stack.
+- GraphQL introspection is enabled by default. If you don't want production introspection, add `useDisableIntrospection` from `@envelop/disable-introspection` gated on `NODE_ENV === 'production'` in `src/yoga.ts`.
+
 ## Code Style
 
 - Tabs, single quotes, no trailing semicolons
