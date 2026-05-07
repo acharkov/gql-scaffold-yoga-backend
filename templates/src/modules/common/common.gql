@@ -1,0 +1,10 @@
+scalar BigInt
+scalar Timestamp
+scalar JSON
+
+directive @atLeastModer on FIELD_DEFINITION | INPUT_FIELD_DEFINITION
+directive @rateLimit(max: Int, window: String, message: String) on FIELD_DEFINITION
+
+type Query {
+	_ping: String!
+}

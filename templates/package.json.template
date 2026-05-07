@@ -1,0 +1,21 @@
+{
+  "name": "{{PROJECT_NAME}}",
+  "version": "0.1.0",
+  "description": "",
+  "main": "src/index.ts",
+  "type": "module",
+  "scripts": {
+    "build": "tsc",
+    "start": "node --env-file=.env --import tsx/esm --watch src/index.ts",
+    "pgtyped": "npx pgtyped -w -c pgtyped.json --debug",
+    "cg": "NODE_OPTIONS='--import tsx' graphql-codegen-esm --config codegen.ts",
+    "eslint": "npx eslint",
+    "eslint:fix": "npx eslint --fix",
+    "test": "vitest --no-file-parallelism"
+  },
+  "author": "",
+  "license": "ISC",
+  "overrides": {
+    "typescript": "$typescript"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "typesOverrides": {
+    "numeric": "number"
+  },
+  "transforms": [
+    {
+      "mode": "sql",
+      "include": "**/*.sql",
+      "emitTemplate": "{{dir}}/{{name}}.queries.ts"
+    }
+  ],
+  "srcDir": "./src/",
+  "db": {
+    "host": "localhost",
+    "user": "root",
+    "dbName": "{{PROJECT_NAME}}",
+    "password": "root_pswd"
+  }
+}
