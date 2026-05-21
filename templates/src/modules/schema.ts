@@ -10,7 +10,7 @@ export const application = createApplication({
 		CommonModule,
 	],
 
-	schemaBuilder: ({ typeDefs, resolvers }: { typeDefs: any; resolvers: any }) => {
+	schemaBuilder: ({ typeDefs, resolvers }) => {
 		const schema = makeExecutableSchema({ typeDefs, resolvers })
 		return patchSchema(schema)
 	}
